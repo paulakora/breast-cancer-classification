@@ -24,18 +24,28 @@ This project aims to classify breast cancer tumors as malignant (M) or benign (B
 ## Models Used
 All models were evaluated using accuracy, precision, recall, F1-score, and confusion matrix:
 
-| Model                  | Notes                                     |
-|------------------------|-------------------------------------------|
-| `DummyClassifier`      | Baseline (most frequent class)            |
-| `DecisionTreeClassifier` | Grid search over depth, splits, and leaves |
-| `LogisticRegression`   | L1/L2 regularization, multiple C values   |
-| `KNeighborsClassifier` | Tuned k-values and weighting strategies   |
-| `SVC (Support Vector Machine)` | Linear and RBF kernels evaluated       |
+| Model                  | Accuracy |
+|------------------------|----------|
+| Dummy Classifier       | 0.65     |
+| Decision Tree          | 0.95     |
+| Logistic Regression    | 0.97     |
+| K-Nearest Neighbors    | 0.97     |
+| Support Vector Machine | 0.97     |
 
-## Results
-- PCA confirmed the dataset is linearly separable to a good extent.
-- Logistic Regression and SVM achieved strong performance.
-- All tuned models significantly outperformed the baseline.
+### Best Model: SVM
+**Best Parameters:** `C=1`, `kernel='rbf'`
+
+**Classification Report:**
+```
+              precision    recall  f1-score   support
+
+           B       0.99      0.97      0.98        74
+           M       0.95      0.97      0.96        40
+
+    accuracy                           0.97       114
+   macro avg       0.97      0.97      0.97       114
+weighted avg       0.97      0.97      0.97       114
+```
 
 ## Evaluation Metrics
 - Classification reports and confusion matrices visualized.
